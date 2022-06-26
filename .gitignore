@@ -12,6 +12,7 @@
 composer.lock
 phpunit.xml.dist
 .phpunit.result.cache
+/tests/cache
 ###< symfony/framework-bundle ###
 
 
