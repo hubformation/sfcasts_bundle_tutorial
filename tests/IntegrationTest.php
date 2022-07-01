@@ -33,11 +33,13 @@ class IntegrationTest extends TestCase
         $container = $kernel->getContainer();
 
         $ipsum = $container->get('knpu_lorem_ipsum.knpu_ipsum');
-        $this->assertStringContainsString('stub', $ipsum->getWords(20));
+        $this->assertStringContainsString('stub', $ipsum->getWords(2));
     }
 }
 
 class KnpULoremIpsumTestingKernel extends Kernel {
+    private $knpUIpsumConfig;
+
     public function __construct(array $knpUIpsumConfig = [])
     {
         $this->knpUIpsumConfig = $knpUIpsumConfig;
@@ -48,7 +50,7 @@ class KnpULoremIpsumTestingKernel extends Kernel {
     {
         return __DIR__.'/cache/'.spl_object_hash($this);
     }
-    
+
     public function registerBundles()
     {
         return [
@@ -71,7 +73,7 @@ class StubWordList implements WordProviderInterface {
     public function getWordList(): array
     {
         // TODO: Implement getWordList() method.
-        return ['stub1', 'stub2'];
+        return ['stub', 'stub2'];
     }
 
 }
